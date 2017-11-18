@@ -15,3 +15,7 @@
 
 ### Collections Example
 -  simple program that utilizes the comparator interface
+
+### TestNG Project
+-  simple test ng program to access oracle db and perform some automated tests
+
