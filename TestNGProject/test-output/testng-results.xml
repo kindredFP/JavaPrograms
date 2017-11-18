@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Francis Suite1" duration-ms="27" started-at="2017-11-18T06:42:01Z" finished-at="2017-11-18T06:42:01Z">
+    <groups>
+    </groups>
+    <test name="Regression" duration-ms="27" started-at="2017-11-18T06:42:01Z" finished-at="2017-11-18T06:42:01Z">
+      <class name="com.mypackage.francis.TestNGSimpleTest">
+        <test-method status="PASS" signature="testAdd()[pri:0, instance:com.mypackage.francis.TestNGSimpleTest@64c64813]" name="testAdd" duration-ms="12" started-at="2017-11-18T01:42:01Z" finished-at="2017-11-18T01:42:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAdd -->
+      </class> <!-- com.mypackage.francis.TestNGSimpleTest -->
+    </test> <!-- Regression -->
+  </suite> <!-- Francis Suite1 -->
+</testng-results>
