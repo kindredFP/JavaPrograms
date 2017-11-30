@@ -1,14 +1,10 @@
 package com.mypackage.francis;
 
+import org.apache.http.HttpEntity;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-import org.apache.http.HttpEntity;
+import java.sql.*;
 
 public class BaseClass {
 

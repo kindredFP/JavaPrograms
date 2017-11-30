@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="MySuite01" duration-ms="39" started-at="2017-11-30T03:36:08Z" finished-at="2017-11-30T03:36:08Z">
+    <groups>
+    </groups>
+    <test name="Sample1" duration-ms="39" started-at="2017-11-30T03:36:08Z" finished-at="2017-11-30T03:36:08Z">
+      <class name="AnotherSampleTestClass">
+        <test-method status="PASS" signature="testAdd()[pri:0, instance:AnotherSampleTestClass@7006c658]" name="testAdd" duration-ms="10" started-at="2017-11-29T22:36:08Z" finished-at="2017-11-29T22:36:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAdd -->
+      </class> <!-- AnotherSampleTestClass -->
+    </test> <!-- Sample1 -->
+  </suite> <!-- MySuite01 -->
+</testng-results>

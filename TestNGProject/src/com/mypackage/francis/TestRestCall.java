@@ -1,10 +1,5 @@
 package com.mypackage.francis;
 
-import java.io.UnsupportedEncodingException;
-import java.sql.Connection;
-
-import org.apache.http.Header;
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
@@ -12,12 +7,14 @@ import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.io.UnsupportedEncodingException;
+import java.sql.Connection;
 
 public class TestRestCall extends BaseClass {
 	String urlGet = "http://jsonplaceholder.typicode.com/";
