@@ -4,3 +4,4 @@
 **/*.class
 vcs.xml
 *.iml
+*.jar
