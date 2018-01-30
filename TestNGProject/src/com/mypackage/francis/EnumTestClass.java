@@ -7,10 +7,10 @@ public class EnumTestClass {
 
     @Test
     void enumTestMethod() {
-        System.out.println(DrugProtocolIcons.Allergy.getClassReference());
-        System.out.println(DrugProtocolIcons.BlackBox.getClassReference());
-        System.out.println(DrugProtocolIcons.DrugInteraction.getClassReference());
-        System.out.println(DrugProtocolIcons.DoseCheck.getClassReference());
+        System.out.println(DrugProtocolIcons.ALLERGY.getClassReference());
+        System.out.println(DrugProtocolIcons.BLACK_BOX.getClassReference());
+        System.out.println(DrugProtocolIcons.DRUG_INTERACTION.getClassReference());
+        System.out.println(DrugProtocolIcons.DOSE_CHECK.getClassReference());
     }
 
 

@@ -1,7 +1,7 @@
 package com.helper.enums;
 
 public enum DrugProtocolIcons {
-    Allergy("text"), DoseCheck("text2"), DrugInteraction("text3"), BlackBox("text4");
+    ALLERGY("text"), DOSE_CHECK("text2"), DRUG_INTERACTION("text3"), BLACK_BOX("text4");
 
     private final String classReference;
 
