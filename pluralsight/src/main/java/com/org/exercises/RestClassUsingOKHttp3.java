@@ -3,6 +3,7 @@ package com.org.exercises;
 import okhttp3.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.testng.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
@@ -15,7 +16,6 @@ public class RestClassUsingOKHttp3 {
             = MediaType.parse("application/json; charset=utf-8");
 
     OkHttpClient client = new OkHttpClient();
-
 
     @Test(enabled = false)
     public void testAdd() {
@@ -32,14 +32,12 @@ public class RestClassUsingOKHttp3 {
     }
 
     @Test
-    public void getRequest() throws Exception {
-        OkHttpClient client = new OkHttpClient();
+    public void sampleGetRequest() throws Exception {
         Request request = new Request.Builder()
                 .url("https://jsonplaceholder.typicode.com/posts")
                 .build();
 
         Response response = client.newCall(request).execute();
-        //System.out.println("Response code=" + response.code());
 
         JSONArray jsonArray = new JSONArray(response.body().string());
         //System.out.println("first element of the json array=" + jsonArray.getJSONObject(0));
@@ -53,10 +51,12 @@ public class RestClassUsingOKHttp3 {
             System.out.println("***");
         }
 
+        Assert.assertEquals(response.code(),200,"error code not matching");
+
     }
 
     @Test
-    void post() throws Exception {
+    void samplePostRequest() throws Exception {
         RequestBody body = RequestBody.create(JSON, "[{\"userId\":1}]");
         Request request = new Request.Builder()
                 .url("https://jsonplaceholder.typicode.com/posts")
@@ -64,5 +64,6 @@ public class RestClassUsingOKHttp3 {
                 .build();
         Response response = client.newCall(request).execute();
         System.out.println(response.body().string());
+        Assert.assertEquals(response.code(), 201, "not equal to 200");
     }
 }
