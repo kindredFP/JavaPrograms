@@ -7,93 +7,95 @@ import java.io.InputStream;
 import java.sql.*;
 
 public class BaseClass {
+    public static final String CONSTANT_FIRST = "firstone";
+    public static final String CONSTANT_SECOND = "secondone";
 
-	public static String convertInputStreamToString(InputStream is) {
-		try {
-			return new java.util.Scanner(is).useDelimiter("\\A").next();
-		} catch (java.util.NoSuchElementException e) {
-			return "";
-		}
-	}
 
-	public static String getHttpContent(HttpEntity entity) {
-		try {
-			if (entity == null) {
-				return null;
-			}
+    public static String convertInputStreamToString(InputStream is) {
+        try {
+            return new java.util.Scanner(is).useDelimiter("\\A").next();
+        } catch (java.util.NoSuchElementException e) {
+            return "";
+        }
+    }
 
-			return convertInputStreamToString(entity.getContent());
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+    public static String getHttpContent(HttpEntity entity) {
+        try {
+            if (entity == null) {
+                return null;
+            }
 
-	public static Connection getOracleConnection() {
+            return convertInputStreamToString(entity.getContent());
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
-		Connection connection = null;
-		System.out.println("-------- Oracle JDBC Connection Testing ------");
+    public static Connection getOracleConnection() {
 
-		try {
+        Connection connection = null;
+        System.out.println("-------- Oracle JDBC Connection Testing ------");
 
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+        try {
 
-		} catch (ClassNotFoundException e) {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			System.out.println("Where is your Oracle JDBC Driver?");
-			e.printStackTrace();
-			return null;
+        } catch (ClassNotFoundException e) {
 
-		}
+            System.out.println("Where is your Oracle JDBC Driver?");
+            e.printStackTrace();
+            return null;
 
-		//System.out.println("Oracle JDBC Driver Registered!");
+        }
 
-		try {
+        //System.out.println("Oracle JDBC Driver Registered!");
 
-			connection = DriverManager.getConnection(
-					"jdbc:oracle:thin:@10.236.58.231:1521:FUNCNADB", "icrs22",
-					"change1t");
+        try {
 
-		} catch (SQLException e) {
+            connection = DriverManager.getConnection(
+                    "jdbc:oracle:thin:@10.236.58.231:1521:FUNCNADB", "icrs22",
+                    "change1t");
 
-			System.out.println("Connection Failed! Check output console");
-			e.printStackTrace();
-			return null;
+        } catch (SQLException e) {
 
-		}
+            System.out.println("Connection Failed! Check output console");
+            e.printStackTrace();
+            return null;
 
-		if (connection != null) {
-			System.out.println("Successful connection!");
-		} else {
-			System.out.println("Failed to make connection!");
-		}
-		return connection;
-	}
+        }
 
-	public static String queryDB(String query,Connection con) {
-		Statement stmt = null;
-		String deviceId = "";
-		try {
-			stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
-			//while (rs.next()) {
-			rs.next();
-				deviceId = rs.getString("PIN_IDENTIFIER");
-			//}
-		} catch (SQLException e) {
-			System.out.println ("SQL Exception" + e);
-		} finally {
-			if (stmt != null) {
-				try{
-				stmt.close();
-				}
-				catch (Exception e){
-					System.out.println ("Statement did not close " + e);
-				}
-			}
-		}
-		return deviceId;
-	}
+        if (connection != null) {
+            System.out.println("Successful connection!");
+        } else {
+            System.out.println("Failed to make connection!");
+        }
+        return connection;
+    }
+
+    public static String queryDB(String query, Connection con) {
+        Statement stmt = null;
+        String deviceId = "";
+        try {
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            //while (rs.next()) {
+            rs.next();
+            deviceId = rs.getString("PIN_IDENTIFIER");
+            //}
+        } catch (SQLException e) {
+            System.out.println("SQL Exception" + e);
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception e) {
+                    System.out.println("Statement did not close " + e);
+                }
+            }
+        }
+        return deviceId;
+    }
 }
