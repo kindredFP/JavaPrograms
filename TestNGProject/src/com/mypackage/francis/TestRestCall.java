@@ -23,7 +23,7 @@ public class TestRestCall extends BaseClass {
     private String urlDigest = "http://func-app-na-01.das.orion.altus.bblabs:8080/icrs-restricted/subscriber/FrancisEcoId";
     private String urlHelm = "https://func-jetty-01.das.orion.altus.bblabs:8443/maa/subscriber/AfNRVmHmKJQ%2BWccUU7c1NAs%3D/entitlement?subIDRealm=EBB";
 
-    @Test
+    @Test (groups = {CONSTANT_FIRST})
     public void sendGETRequest() {
         int responseCode = 0;
         HttpClient httpClient = HttpClientBuilder.create().build();

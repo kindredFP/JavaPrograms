@@ -4,7 +4,7 @@
     <test name="Smoke Test">
         <groups>
             <run>
-                <include name="firstone" />
+                <include name="secondone" />
             </run>
         </groups>
         <packages>
