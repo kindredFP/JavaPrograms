@@ -1,11 +1,11 @@
 package com.helper.enums;
 
-public enum DrugProtocolIcons {
-    ALLERGY("text"), DOSE_CHECK("text2"), DRUG_INTERACTION("text3"), BLACK_BOX("text4");
+public enum DIRECTIONS {
+    UP("up"), DOWN("down"), LEFT("left"), RIGHT("right");
 
     private final String classReference;
 
-    DrugProtocolIcons(String classReference) {
+    DIRECTIONS(String classReference) {
         this.classReference = classReference;
     }
 
