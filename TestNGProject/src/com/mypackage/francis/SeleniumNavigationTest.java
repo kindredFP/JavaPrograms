@@ -67,6 +67,7 @@ public class SeleniumNavigationTest {
             System.out.println("driver.getWindowHandle" + driver.getWindowHandle());
 
         }
+        driver.switchTo().defaultContent();
 
         Thread.sleep(1000);  // Let the user actually see something!
         driver.quit();
