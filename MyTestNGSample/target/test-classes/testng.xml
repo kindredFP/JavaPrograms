@@ -1,8 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="MySuite01">
-    <test name="Sample1">
-        <classes>
-            <class name="MyConcatenatorTest"/>
-        </classes>
-    </test>
-</suite>
