@@ -11,11 +11,14 @@ import org.testng.annotations.Test;
 
 public class SeleniumNavigationTest {
 
-    WebDriver driver = new ChromeDriver();
 
     @Test
     public void test() throws Exception {
-        System.setProperty("webdriver.chrome.driver", "/Users/fpalattao/Documents/Dropbox/gitRepository/gitHubRepos/JavaPrograms/resourceFiles/chromedriver");
+
+        String path = System.getProperty("user.dir") + "/resourceFiles/chromedriver";
+        System.setProperty("webdriver.chrome.driver", path);
+
+        WebDriver driver = new ChromeDriver();
 
         driver.get("http://demo.guru99.com/insurance/v1/index.php");
 
@@ -41,10 +44,13 @@ public class SeleniumNavigationTest {
         driver.quit();
     }
 
-    @Test
+    @Test()
     public void navigationWindowTest() throws Exception {
 
-        System.setProperty("webdriver.chrome.driver", "/Users/fpalattao/Documents/Dropbox/gitRepository/gitHubRepos/JavaPrograms/resourceFiles/chromedriver");
+        String path = System.getProperty("user.dir") + "/resourceFiles/chromedriver";
+        System.setProperty("webdriver.chrome.driver", path);
+
+        WebDriver driver = new ChromeDriver();
 
         driver.get("http://demo.guru99.com/payment-gateway/index.php");
 
@@ -73,10 +79,13 @@ public class SeleniumNavigationTest {
         driver.quit();
     }
 
-    @Test
+    @Test()
     public void navigationWindowClosingTest() throws Exception {
 
-        System.setProperty("webdriver.chrome.driver", "/Users/fpalattao/Documents/Dropbox/gitRepository/gitHubRepos/JavaPrograms/resourceFiles/chromedriver");
+        String path = System.getProperty("user.dir") + "/resourceFiles/chromedriver";
+        System.setProperty("webdriver.chrome.driver", path);
+
+        WebDriver driver = new ChromeDriver();
 
         driver.get("http://demo.guru99.com/payment-gateway/index.php");
 
@@ -106,14 +115,15 @@ public class SeleniumNavigationTest {
 
         try {
             driver.switchTo().window(lastHandle);
-        }
-        catch (NoSuchWindowException e){
+        } catch (NoSuchWindowException e) {
             Thread.sleep(5000);
             driver.switchTo().window(mainHandle);
         }
-    }
-    @AfterMethod
-    public void cleanup(){
         driver.quit();
+
+    }
+
+    @AfterMethod
+    public void cleanup() {
     }
 }

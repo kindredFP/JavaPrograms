@@ -1,45 +1,37 @@
 package com.mypackage.francis;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
 
 public class SeleniumWebTest {
 
-    //xpath to grab the sibling beside the column
-    private final static String COUNTRY = "//tbody/tr/th[contains(text(),'%s')]/following-sibling::td[%d]";
-
-    //static columns
-    private final static int COUNTRY_COLUMN = 1;
-    private final static int CITY = 2;
+    //TODO convert and use a page object
+    @FindBy(id = "firstName")
+    private WebElement firstName;
 
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "/Users/fpalattao/Documents/Dropbox/gitRepository/gitHubRepos/JavaPrograms/resourceFiles/chromedriver");
+
+        String path = System.getProperty("user.dir") + "/resourceFiles/chromedriver";
+
+        System.setProperty("webdriver.chrome.driver", path);
 
         WebDriver driver = new ChromeDriver();
-        driver.get("http://toolsqa.com/automation-practice-table/");
+        driver.get("https://demoqa.com/automation-practice-form");
 
-        Thread.sleep(5000);  // Let the user actually see something!
+        Thread.sleep(3000);  // Let the user actually see something!
 
-        //first argument is the first row value which can be dynamic (Burj, Clock, etc)
-        //2nd argument is what column which we can define a constant
-        String firstRowFirstColumnXPATH = String.format(COUNTRY, "Burj", COUNTRY_COLUMN);
-        String firstRowSecondColumnXPATH = String.format(COUNTRY, "Burj", CITY);
+        //TODO Grab all field with page object
+        WebElement myFirstName = driver.findElement(By.id("firstName"));
+        myFirstName.click();
+        myFirstName.sendKeys("Francis");
 
-
-        //Print first value
-        WebElement columnElement = driver.findElement(By.xpath(firstRowFirstColumnXPATH));
-        String columnValue = columnElement.getText();
-        System.out.println("First column Value of first row = " + columnValue);
-
-        //Print next value
-        columnElement = driver.findElement(By.xpath(firstRowSecondColumnXPATH));
-        columnValue = columnElement.getText();
-        System.out.println("Second column Value of first row = " + columnValue);
-
-        Thread.sleep(5000);  // Let the user actually see something!
+        Thread.sleep(3000);  // Let the user actually see something!
         driver.quit();
+
+
     }
 }
